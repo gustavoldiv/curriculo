@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-12",
+  "neutral_synchronized": true,
+  "no_first_person": true,
+  "career_columns": "1fr 1fr; stretch",
+  "soft_skills_source": "Principais soft skills.xlsx",
+  "screenshots_reviewed": 14,
+  "mime_attachment_parser_check": "passed",
+  "visual_browser_qa": "Não executada"
+}

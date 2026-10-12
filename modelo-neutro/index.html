@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfólio profissional: sistemas corporativos, análise de negócio, integrações e melhoria de processos.">
+  <meta name="theme-color" content="#081b3c"><meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Portfólio profissional | Tecnologia e negócio"><meta property="og:description" content="Conexão entre áreas, sistemas e pessoas.">
+  <title>Portfólio profissional | Tecnologia e negócio</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css">
+  <script src="js/config.js" defer></script><script src="js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="header"><div class="container header-inner">
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu <span aria-hidden="true">☰</span></button>
+  <nav id="navigation" aria-label="Navegação principal"><a href="#sobre">Perfil</a><a href="#trajetoria">Trajetória</a><a href="#competencias">Habilidades</a><a href="#projetos">Inovação</a><a class="nav-contact" href="#contato">Contato ↗</a></nav>
+</div></header>
+<main id="conteudo">
+<noscript><div class="container notice">Ative o JavaScript para visualizar o portfólio e seus contatos.</div></noscript>
+<div class="hero-shell">
+<section class="hero container" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-copy"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Sistemas · Processos · Pessoas</p><p class="hero-name" data-text="name"></p>
+    <h1 id="hero-title" data-text="headline"></h1><p class="hero-intro" data-text="introduction"></p>
+  </div>
+  <aside class="profile-panel" aria-label="Perfil profissional">
+    <div class="profile-top"><span>CONEXÕES QUE GERAM SOLUÇÕES</span><span data-text="initials"></span></div>
+    <div class="portrait-stage"><div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+      <a class="orbit-label orbit-business" href="#sobre"><span data-icon="people"></span>Negócio</a>
+      <a class="orbit-label orbit-data" href="#competencias"><span data-icon="database"></span>Dados</a>
+      <a class="orbit-label orbit-systems" href="#codigo"><span data-icon="grid"></span>Sistemas</a>
+      <div class="portrait-wrap"><span class="portrait-initials" data-text="initials" aria-hidden="true"></span><img id="profile-photo" alt="" width="240" height="240" decoding="async" fetchpriority="high" hidden></div>
+    </div>
+    <h2 data-text="shortName"></h2><p class="profile-role" data-text="title"></p><p class="profile-specialties" data-text="specialties"></p>
+  </aside>
+  <div class="facts" id="facts" aria-label="Destaques da trajetória"></div>
+</section></div>
+<div class="container"><nav class="topic-navigation" aria-label="Explore os cinco tópicos">
+  <a href="#sobre"><span class="topic-number">01</span><span data-icon="people"></span><span>Perfil profissional</span><b aria-hidden="true">↗</b></a>
+  <a href="#trajetoria"><span class="topic-number">02</span><span data-icon="flow"></span><span>Trajetória</span><b aria-hidden="true">↗</b></a>
+  <a href="#competencias"><span class="topic-number">03</span><span data-icon="database"></span><span>Hard & soft skills</span><b aria-hidden="true">↗</b></a>
+  <a href="#projetos"><span class="topic-number">04</span><span data-icon="spark"></span><span>Inovação e projetos</span><b aria-hidden="true">↗</b></a>
+  <a href="#codigo"><span class="topic-number">05</span><span data-icon="code"></span><span>Projetos e soluções digitais</span><b aria-hidden="true">↗</b></a>
+</nav></div>
+<section class="section container" id="sobre" aria-labelledby="about-title">
+  <div class="section-heading"><div><p class="eyebrow section-label"><span class="section-number">01</span> Perfil profissional</p><h2 id="about-title">Entre o desafio do negócio<br>e a solução em tecnologia.</h2></div></div>
+  <div class="about-grid"><div class="prose" id="about-copy"></div><figure class="process-illustration"><img src="assets/conexao-processos.svg" alt="Compreender a necessidade, definir requisitos, articular a solução e acompanhar a operação." width="640" height="430" loading="lazy"></figure></div>
+  <div class="contribution-heading"><h3>Competências aplicadas aos desafios das empresas</h3></div>
+  <div class="problem-explorer"><div id="problem-buttons" class="problem-buttons" role="group" aria-label="Escolha um desafio"></div><div id="problem-panel" class="problem-panel" aria-live="polite" aria-atomic="true"></div></div>
+</section>
+<section class="section section-soft" id="trajetoria" aria-labelledby="career-title"><div class="container">
+  <div class="section-heading"><div><p class="eyebrow section-label"><span class="section-number">02</span> Trajetória</p><h2 id="career-title">Experiência construída<br>perto da operação.</h2></div></div>
+  <div class="career-grid"><div class="career-panel experience-panel"><h3 class="column-title"><span data-icon="flow"></span>Experiência profissional</h3><ol class="timeline" id="experience"></ol><details class="previous-experience" id="previous-experience" hidden><summary>Ver outras experiências</summary><ol class="timeline" id="experience-previous"></ol></details></div>
+  <div class="career-panel education-panel"><h3 class="column-title"><span data-icon="book"></span>Formação acadêmica</h3><div id="education"></div><section class="courses-section" id="courses-section" aria-labelledby="courses-title" hidden><h4 id="courses-title">Cursos e desenvolvimento</h4><ul id="courses-list"></ul><details class="courses-details" id="courses-details" hidden><summary>Ver outros cursos</summary><ul id="courses-other"></ul></details></section></div></div>
+</div></section>
+<section class="section container" id="competencias" aria-labelledby="skills-title">
+  <div class="section-heading"><div><p class="eyebrow section-label"><span class="section-number">03</span> Habilidades</p><h2 id="skills-title">Conhecimento técnico.<br>Conexão humana.</h2></div></div>
+  <div class="skill-switch" role="tablist" aria-label="Tipo de habilidade"><button type="button" data-skill-filter="hard" id="tab-hard" role="tab" aria-selected="true" aria-controls="skills-panel" tabindex="0"><span data-icon="code"></span> Hard skills <small>Conhecimento técnico</small></button><button type="button" data-skill-filter="soft" id="tab-soft" role="tab" aria-selected="false" aria-controls="skills-panel" tabindex="-1"><span data-icon="people"></span> Soft skills <small>Competências comportamentais</small></button></div>
+  <div id="skills-panel" role="tabpanel" aria-labelledby="tab-hard" tabindex="0"><div class="skills-grid" id="skills"></div></div><p id="skill-status" class="sr-only" role="status" aria-live="polite"></p>
+</section>
+<section class="section section-navy" id="projetos" aria-labelledby="cases-title"><div class="container">
+  <div class="section-heading"><div><p class="eyebrow section-label"><span class="section-number">04</span> Inovação e projetos</p><h2 id="cases-title">Inovação reconhecida.<br>Transformação em movimento.</h2></div></div>
+  <div id="innovation-feature" class="innovation-feature" hidden></div>
+  <div class="cases-heading"><h3>Projetos & iniciativas profissionais</h3></div>
+  <div class="toolbar"><div class="filter-group" id="case-filters" role="group" aria-label="Filtrar cases por categoria"></div></div>
+  <p class="result-count" id="case-count" role="status" aria-live="polite"></p><div class="case-grid" id="cases"></div>
+</div></section>
+<section class="section section-soft" id="codigo" aria-labelledby="repos-title"><div class="container">
+  <div class="section-heading"><div><p class="eyebrow section-label"><span class="section-number">05</span> Projetos e soluções digitais</p><h2 id="repos-title">Do problema prático<br>à ferramenta.</h2></div><a class="button github-button" data-link="github"><span data-icon="github"></span>Explorar GitHub ↗</a></div>
+  <p class="section-intro">Soluções digitais para otimizar rotinas, melhorar processos e facilitar o tratamento de informações.</p>
+  <div class="toolbar"><div class="filter-group" id="repo-filters" role="group" aria-label="Filtrar repositórios por categoria"></div></div>
+  <p id="repo-status" class="small muted" role="status" aria-live="polite"></p><p id="repo-count" class="result-count" role="status" aria-live="polite"></p><div class="repo-grid" id="repos"></div>
+</div></section>
+<section class="section container" id="contato" aria-labelledby="contact-title"><div class="contact-grid">
+  <div><p class="eyebrow contact-label"><span data-icon="mail"></span>Contato</p><h2 id="contact-title">Novos desafios.<br>Novas possibilidades.</h2><p class="contact-intro">Oportunidades profissionais, sistemas corporativos, integração entre áreas e melhoria de processos.</p><div class="contact-links"><a data-link="email" id="email-link"></a><a data-link="linkedin" data-contact-icon="linkedin">Conectar no LinkedIn ↗</a><a data-link="github" data-contact-icon="github">Ver perfil no GitHub ↗</a><a id="whatsapp-link" hidden>Conversar no WhatsApp ↗</a></div></div>
+  <form id="contact-form" class="contact-form"><div><label for="contact-name">Seu nome</label><input id="contact-name" name="name" autocomplete="name" maxlength="100" required></div><div><label for="contact-email">Seu e-mail</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="180" required></div><div><label for="contact-message">Oportunidade ou desafio</label><textarea id="contact-message" name="message" rows="5" maxlength="1200" placeholder="Conte um pouco sobre a oportunidade ou o desafio." required></textarea></div><div class="attachment-field"><label for="contact-files"><span data-icon="clip"></span>Anexar arquivo</label><input id="contact-files" type="file" multiple aria-describedby="attachment-status"><p id="attachment-status" class="small" role="status" aria-live="polite">Até 10 MB no total. Com anexos, será baixado um rascunho de e-mail (.eml).</p></div><button class="button primary" type="submit"><span data-text="contactLabel">Enviar mensagem</span><span aria-hidden="true">↗</span></button><p id="form-status" role="status" aria-live="polite" class="small"></p><a id="prepared-email" class="text-link" hidden>Continuar no aplicativo de e-mail ↗</a></form>
+</div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><a class="brand" href="#inicio"><span class="monogram" data-text="initials"></span><span data-text="shortName"></span></a><p>© <span id="year"></span> <span data-text="name"></span></p><a href="#inicio" class="text-link">Voltar ao topo ↑</a></div></footer>
+</body></html>

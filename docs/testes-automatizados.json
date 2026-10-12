@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-12",
+  "environment": "Node + LinkeDOM (sem navegador real)",
+  "passed": 14,
+  "results": [
+    {
+      "name": "Remoções e novos destaques do cabeçalho",
+      "status": "passed"
+    },
+    {
+      "name": "Soft skills correspondem aos seis títulos da planilha",
+      "status": "passed"
+    },
+    {
+      "name": "Abas acessíveis: seleção, painel e teclado",
+      "status": "passed"
+    },
+    {
+      "name": "Experiências: Unimed e Senac visíveis; três anteriores recolhidas",
+      "status": "passed"
+    },
+    {
+      "name": "Formação agrupada e três cursos em destaque",
+      "status": "passed"
+    },
+    {
+      "name": "Desafios atualizados e contribuições sem subtítulo repetido",
+      "status": "passed"
+    },
+    {
+      "name": "Premiação, legenda de novembro e filtros dos cases",
+      "status": "passed"
+    },
+    {
+      "name": "Soluções sem links individuais; botão GitHub destacado",
+      "status": "passed"
+    },
+    {
+      "name": "Contato sem anexos mantém mailto",
+      "status": "passed"
+    },
+    {
+      "name": "Geração MIME de dois anexos com conteúdo preservado",
+      "status": "passed"
+    },
+    {
+      "name": "Limite de 10 MB nos anexos",
+      "status": "passed"
+    },
+    {
+      "name": "Menu, âncoras, labels e SVG decorativo",
+      "status": "passed"
+    },
+    {
+      "name": "Fallback da API e conteúdo remoto seguro",
+      "status": "passed"
+    },
+    {
+      "name": "Modelo neutro sem identidade anterior",
+      "status": "passed"
+    }
+  ]
+}
