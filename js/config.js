@@ -60,7 +60,7 @@ window.PORTFOLIO_CONFIG = {
         "Análise de releases do SGU Nexdom, correções, alterações regulatórias e funcionalidades, com apresentação às áreas e acompanhamento da homologação.",
         "Estruturação de chamados complexos com escopo, evidências e impactos antes do encaminhamento ao fornecedor.",
         "Acompanhamento técnico-funcional de demandas, prioridades, prazos e planos de ação, conforme direcionamento da liderança.",
-        "Acompanhamento do fornecedor, coordenação técnica e planejamento do acompanhamento de indicadores na primeira iniciativa de automação: integração de notas fiscais de serviços, em desenvolvimento."
+        "Acompanhamento do fornecedor, coordenação técnica e planejamento do acompanhamento de indicadores na 1ª iniciativa de automação: integração de notas fiscais de serviços, em desenvolvimento."
       ],
       "previous": false,
       "brand": "unimed"
@@ -408,7 +408,8 @@ window.PORTFOLIO_CONFIG = {
     "timeoutMs": 6500,
     "maxPages": 3,
     "exclude": [
-      "portifolio"
+      "portifolio",
+      "curriculo"
     ],
     "reviewedAt": "10/10/2026",
     "curated": {
@@ -532,7 +533,7 @@ window.PORTFOLIO_CONFIG = {
     "organization": "Unimed Divinópolis",
     "description": "Da proposta premiada à mobilização de novas iniciativas de automação.",
     "summary": "Autoria e estruturação técnica da proposta de automação da conciliação bancária, com mapeamento do processo, análise de viabilidade e apresentação ao Comitê de Inovação.",
-    "currentTitle": "Primeira iniciativa em desenvolvimento",
+    "currentTitle": "1ª iniciativa em desenvolvimento",
     "current": "Automação da integração de notas fiscais de serviços, com acompanhamento do fornecedor, coordenação técnica e acompanhamento de indicadores conforme a evolução da iniciativa.",
     "impact": "A proposta despertou o interesse de outros setores e mobilizou a revisão e documentação de processos para identificar oportunidades de otimização e automação.",
     "status": "Desenvolvimento / configuração",
@@ -550,7 +551,7 @@ window.PORTFOLIO_CONFIG = {
       },
       {
         "label": "Implementação",
-        "text": "Primeira automação em desenvolvimento."
+        "text": "1ª automação em desenvolvimento."
       }
     ]
   },

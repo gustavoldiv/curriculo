@@ -18,12 +18,6 @@
     catch { return ''; }
   }
   function validEmail(value) { return /^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$/.test(value || ''); }
-  function mailtoUrl(destination, name, email, message) {
-    if (!validEmail(destination) || !validEmail(email) || !name.trim() || !message.trim()) return '';
-    const subject = 'Contato pelo portfólio: ' + name.replace(/[\r\n]/g, ' ').trim().slice(0,100);
-    const body = 'Nome: ' + name.trim().slice(0,100) + '\nE-mail: ' + email.trim().slice(0,180) + '\n\n' + message.trim().slice(0,1200);
-    return 'mailto:' + destination + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  }
   function externalLink(node, href) {
     const safe = safeWebUrl(href);
     if (!safe) { node.hidden = true; node.removeAttribute('href'); return; }
@@ -33,7 +27,7 @@
   function empty(container, text) { container.append(el('p', 'empty-state', text)); }
   function textMatch(record, query) { return normalize(JSON.stringify(record)).includes(normalize(query.trim())); }
   // Pequeno núcleo também utilizado na validação automatizada do pacote.
-  window.PortfolioCore = {normalize, safeWebUrl, mailtoUrl, textMatch};
+  window.PortfolioCore = {normalize, safeWebUrl, textMatch};
 
   Object.entries(config.theme || {}).forEach(([key,value]) => {
     const cssName = {accent:'--accent',accentDark:'--accent-dark',accentSoft:'--accent-soft'}[key];
@@ -88,8 +82,13 @@
   });
 
   const iconPaths = {
+    compass:['M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z','m16 8-3 5-5 3 3-5 5-3Z'],
+    server:['M3 3h18v7H3zM3 14h18v7H3zM6 6.5h.01M6 17.5h.01M10 6.5h7M10 17.5h7M8 10v4M16 10v4'],
+    network:['M9 2h6v6H9zM2 16h6v6H2zM16 16h6v6h-6zM12 8v4M5 16v-4h14v4'],
+    medical:['M8 4H5v18h14V4h-3M8 2h8v4H8zM12 10v8M8 14h8'],
+    shield:['M12 2 3 6v6c0 5 9 10 9 10s9-5 9-10V6l-9-4Z','m8 12 3 3 5-6'],
+    tools:['M21 6a6 6 0 0 1-8 7l-7 8-3-3 8-7a6 6 0 0 1 7-8l-4 4 3 3 4-4Z'],
     mail:['M3 5h18v14H3zM3 6l9 7 9-7'],
-    clip:['m9 12 5-5a3 3 0 0 1 4 4l-8 8a5 5 0 0 1-7-7l9-9M6 15l9-9'],
     linkedin:['M4 9v11M4 4v1M10 20V9M10 14c0-7 10-7 10 0v6'],
     github:['M8 20c-4 1-4-2-6-2M16 22v-4c0-1 0-2-1-3 4 0 6-2 6-5 0-2-1-3-2-4 0-1 0-3-1-4-2 0-3 1-4 2h-4C9 3 7 2 5 2c-1 1-1 3-1 4-1 1-2 2-2 4 0 3 2 5 6 5-1 1-1 2-1 3v4'],
     flow:['M4 4h6v6H4zM14 14h6v6h-6zM7 10v7h7M10 7h7v7'],
@@ -163,33 +162,33 @@
     const observer=new IntersectionObserver(entries=> {entries.forEach(entry=> {if(entry.isIntersecting){$$('nav a').forEach(link=>link.removeAttribute('aria-current'));const active=$('nav a[href="#'+entry.target.id+'"]');if(active)active.setAttribute('aria-current','location');}});},{rootMargin:'-15% 0px -65% 0px',threshold:0});
     $$('main section[id]').forEach(section=>observer.observe(section));
   }
-  let caseCategory='Todos', repoCategory='Todos', repositoryData=[];
-  function filterButtons(container,categories,selected,onSelect) {
-    container.replaceChildren();
-    ['Todos',...new Set(categories)].forEach(category=> {
-      const button=el('button','',category);button.type='button';button.setAttribute('aria-pressed',String(selected===category));
-      button.addEventListener('click',()=>{ $$('button',container).forEach(b=>b.setAttribute('aria-pressed',String(b===button)));onSelect(category);});container.append(button);
-    });
-  }
+  let repositoryData=[];
   function renderCases() {
     const container=$('#cases'); container.replaceChildren();
-    const list=(config.cases || []).filter(item=>(caseCategory==='Todos'||item.category===caseCategory));
+    const list=config.cases || [];
     $('#case-count').textContent=list.length+' projetos e iniciativas';
-    if(!list.length)empty(container,'Nenhum case encontrado. Selecione outra categoria.');
+    if(!list.length)empty(container,'Projetos ainda não cadastrados.');
     list.forEach(item=> {
-      const card=el('article','case-card');const graphic=el('div','case-graphic');graphic.append(icon(({Implantação:'grid',Integração:'flow',Proposta:'spark',Processos:'target'})[item.category]),el('span','',(item.tags||[])[0]||item.category));card.append(graphic);const top=el('div','card-top');top.append(el('span','category',item.category),el('span','card-number',String((config.cases || []).indexOf(item)+1).padStart(2,'0')));
+      const card=el('article','case-card');const graphic=el('div','case-graphic');
+      const iconName=({'orientamed':'compass','transicao-erp':'server','integracao-tiss':'network','sistema-assistencial':'medical','adequacao-regulatoria':'shield','autonomia-erp':'tools'})[item.id]||'target';
+      card.dataset.caseIcon=iconName;
+      const iconButton=el('button','case-icon-button');iconButton.type='button';iconButton.append(icon(iconName));
+      iconButton.setAttribute('aria-label','Ver contexto e contribuição: '+item.title);iconButton.setAttribute('aria-expanded','false');
+      graphic.append(iconButton,el('span','',(item.tags||[])[0]||item.category));card.append(graphic);const top=el('div','card-top');top.append(el('span','category',item.category),el('span','card-number',String((config.cases || []).indexOf(item)+1).padStart(2,'0')));
       const details=el('details'); const summary=el('summary','','Contexto e contribuição');summary.setAttribute('aria-label','Contexto e contribuição: '+item.title);details.append(summary);
+      details.id='case-details-'+(config.cases||[]).indexOf(item);iconButton.setAttribute('aria-controls',details.id);
+      const updateIcon=()=>{iconButton.setAttribute('aria-expanded',String(details.open));iconButton.setAttribute('aria-label',(details.open?'Recolher':'Ver')+' contexto e contribuição: '+item.title);};
+      iconButton.addEventListener('click',()=>{details.open=!details.open;updateIcon();});details.addEventListener('toggle',updateIcon);
       [['Desafio',item.context],['Atuação profissional',item.contribution],['Resultado / estágio',item.result]].forEach(([label,text])=>{const p=el('p');p.append(el('strong','',label),document.createTextNode(text||''));details.append(p);});
       details.append(el('p','evidence',item.evidence));card.append(top,el('h3','',item.title),el('p','summary',item.summary),el('p','status',item.status),tags(item.tags),details);container.append(card);
     });
   }
-  filterButtons($('#case-filters'),(config.cases||[]).map(item=>item.category),caseCategory,value=>{caseCategory=value;renderCases();});
   renderCases();
 
   function prepareRepos(items) {
     const gh=config.github || {}, owner=String(gh.username || '').toLowerCase();
     return (Array.isArray(items)?items:[]).filter(item=> {
-      if(!item||typeof item.name!=='string'||item.fork||item.archived||(gh.exclude||[]).includes(item.name))return false;
+      if(!item||typeof item.name!=='string'||item.fork||item.archived||(gh.exclude||[]).some(name=>normalize(name)===normalize(item.name)))return false;
       try{const u=new URL(item.html_url);return u.protocol==='https:'&&u.hostname==='github.com'&&!u.username&&!u.password&&u.pathname.toLowerCase()==='/'+owner+'/'+item.name.toLowerCase();}catch{return false;}
     }).map(item=> {
       const c=(gh.curated||{})[item.name]||{};
@@ -198,16 +197,15 @@
   }
   function renderRepos() {
     const container=$('#repos');container.replaceChildren();
-    const list=repositoryData.filter(item=>(repoCategory==='Todos'||item.category===repoCategory));
-    $('#repo-count').textContent=list.length+' soluções disponíveis';
-    if(!list.length)empty(container,'Nenhum repositório encontrado. Altere os filtros ou consulte o perfil no GitHub.');
+    const list=repositoryData;
+    if(!list.length)empty(container,'Nenhuma solução cadastrada no momento.');
     list.forEach(item=> {
       const card=el('article','repo-card');const top=el('div','card-top');const mark=el('div','repo-icon');mark.append(icon(item.name==='orientamed'?'spark':'code'));top.append(mark,el('span','card-number',String(repositoryData.indexOf(item)+1).padStart(2,'0')));card.append(top);const label=el('p','category',item.category);
       const footer=el('div','repo-footer');footer.append(el('span','language',item.language));
       card.append(label,el('h3','',item.title),el('p','',item.description),footer);container.append(card);
     });
   }
-  function setRepos(items) {repositoryData=prepareRepos(items); if(!repositoryData.some(r=>r.category===repoCategory))repoCategory='Todos';filterButtons($('#repo-filters'),repositoryData.map(i=>i.category),repoCategory,value=>{repoCategory=value;renderRepos();});renderRepos();}
+  function setRepos(items) {repositoryData=prepareRepos(items);renderRepos();}
   const gh=config.github||{};
   setRepos(gh.fallback||[]);
   async function loadRepositories() {
@@ -230,40 +228,4 @@
     } finally {clearTimeout(timeout);}
   }
   loadRepositories();
-  const form=$('#contact-form'),fileInput=$('#contact-files');
-  const maxAttachments=10*1024*1024;
-  if(!validEmail(person.email)){form.hidden=true;$('#email-link').hidden=true;}
-  function selectedFiles(){return Array.from(fileInput.files||[]);}
-  function utf8Base64(value){const bytes=new TextEncoder().encode(value);let binary='';for(const byte of bytes)binary+=String.fromCharCode(byte);return btoa(binary);}
-  function foldBase64(value){return value.match(/.{1,76}/g)?.join('\r\n')||'';}
-  function fileBase64(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(',')[1]||'');reader.onerror=()=>reject(new Error('Não foi possível ler o arquivo.'));reader.readAsDataURL(file);});}
-  async function buildEmail(files,name,email,message){
-    const boundary='portfolio_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2);
-    const lines=['X-Unsent: 1','To: '+person.email,'Reply-To: '+email,'Subject: =?UTF-8?B?'+utf8Base64('Contato pelo portfólio: '+name.replace(/[\r\n]/g,' '))+'?=','MIME-Version: 1.0','Content-Type: multipart/mixed; boundary="'+boundary+'"','','--'+boundary,'Content-Type: text/plain; charset=UTF-8','Content-Transfer-Encoding: base64','',foldBase64(utf8Base64('Nome: '+name+'\nE-mail: '+email+'\n\n'+message))];
-    for(const file of files){
-      const clean=file.name.replace(/[\r\n"\\]/g,'_');const encoded=encodeURIComponent(clean).replace(/'/g,'%27');
-      const mime=/^[a-z0-9.+-]+\/[a-z0-9.+-]+$/i.test(file.type)?file.type:'application/octet-stream';
-      lines.push('--'+boundary,'Content-Type: '+mime,'Content-Disposition: attachment; filename="'+clean.replace(/[^\x20-\x7E]/g,'_')+'"; filename*=UTF-8'+String.fromCharCode(39,39)+encoded,'Content-Transfer-Encoding: base64','',foldBase64(await fileBase64(file)));
-    }
-    lines.push('--'+boundary+'--','');return lines.join('\r\n');
-  }
-  fileInput.addEventListener('change',()=>{
-    const files=selectedFiles(),size=files.reduce((sum,file)=>sum+file.size,0);
-    $('#attachment-status').textContent=size>maxAttachments?'Os anexos ultrapassam 10 MB. Selecione arquivos menores.':files.length?files.length+' arquivo(s) selecionado(s): '+files.map(file=>file.name).join(', ')+'. Será gerado um rascunho .eml com os anexos.':'Até 10 MB no total. Com anexos, será baixado um rascunho de e-mail (.eml).';
-  });
-  form.addEventListener('submit',async event=>{
-    event.preventDefault();if(form.checkValidity&&!form.checkValidity()){form.reportValidity();return;}
-    const name=$('#contact-name').value.trim(),email=$('#contact-email').value.trim(),message=$('#contact-message').value.trim();
-    const href=mailtoUrl(person.email,name,email,message);if(!href){$('#form-status').textContent='Preencha nome, e-mail válido e mensagem antes de continuar.';return;}
-    const files=selectedFiles();if(files.reduce((sum,file)=>sum+file.size,0)>maxAttachments){$('#form-status').textContent='Limite de 10 MB para os anexos. Reduza os arquivos antes de continuar.';return;}
-    if(files.length){
-      const submit=$('button[type="submit"]',form);submit.disabled=true;$('#form-status').textContent='Preparando rascunho com os anexos…';
-      try{const eml=await buildEmail(files,name,email,message);const url=URL.createObjectURL(new Blob([eml],{type:'message/rfc822'}));const download=el('a');download.href=url;download.download='Mensagem_para_'+(person.initials||'contato')+'.eml';document.body.append(download);download.click();download.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);$('#form-status').textContent='Rascunho .eml baixado com os anexos. Abra-o em um aplicativo de e-mail compatível para concluir o envio.';}
-      catch{$('#form-status').textContent='Não foi possível preparar os anexos. Tente novamente ou use o endereço de e-mail disponível.';}
-      finally{submit.disabled=false;}return;
-    }
-    const link=$('#prepared-email');link.setAttribute('href',href);link.hidden=false;$('#form-status').textContent='Continue o envio no seu aplicativo de e-mail.';link.click();
-  });
-  form.addEventListener('input',()=>{$('#prepared-email').hidden=true;$('#form-status').textContent='';});
-  window.PortfolioCore.buildEmail=buildEmail;
 })();

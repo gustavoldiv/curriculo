@@ -13,7 +13,7 @@ Extraia o ZIP e abra `index.html`. O pacote contém HTML, CSS, JavaScript e imag
 - Bacharelado em Sistemas da Informação, Faculdade Pitágoras, 2013, e quatro pós-graduações. Três cursos selecionados visíveis e demais em “Ver outros cursos”. Matemática removida por solicitação.
 - RPAMed em destaque: 2º lugar no Programa Uníssono 2025. A proposta de conciliação bancária é distinta da primeira iniciativa em desenvolvimento, integração de notas fiscais de serviços.
 - OrientaMed preservado como proposta finalista do 2º Programa de Inovação.
-- Busca textual removida das duas seções; filtros por categoria mantidos.
+- Busca textual e filtros removidos das seções de projetos e soluções.
 - Azul-escuro, branco, ciano e dourado, com ícones em cores complementares e espaçamentos mais compactos.
 - Foto da premiação editada para retirar objetos do ambiente, com arquivo original preservado em `assets/rpamed-premiacao-original.jpg`.
 
@@ -86,12 +86,12 @@ A pasta `modelo-neutro/` é uma cópia funcional independente, sem nome, avatar,
 
 A estrutura própria pode ser adaptada comercialmente. Foto, nomes, marcas, cases e código dos repositórios externos não são licenciados automaticamente pelo fornecimento deste template. Os repositórios externos são apenas referenciados, não redistribuídos. O favicon é um SVG geométrico original sem dependências externas.
 
-## Formulário, SEO e limites
+## Contato, SEO e limites
 
-- O formulário gera um link `mailto:` com assunto e mensagem. O botão “Enviar mensagem para Gustavo” abre o aplicativo de e-mail; o visitante conclui o envio nesse aplicativo. Um link de continuação fica disponível caso a abertura automática não ocorra. Não há confirmação de entrega e nenhum servidor recebe a mensagem por este site. Sem aplicativo configurado, use o endereço de e-mail visível.
+- O contato apresenta links de e-mail, LinkedIn e GitHub. O formulário foi removido e substituído por um painel de contribuição profissional. O link de e-mail abre o aplicativo do visitante, que redige e envia sua mensagem.
 - Nenhum serviço terceiro de formulário foi integrado. Não há coleta de analytics.
 - HTML com `lang`, viewport, landmarks, headings, metadados básicos e JSON-LD de Person. Título, descrição e canonical são personalizados em JavaScript. Alguns robôs de redes sociais não executam JavaScript; para previews personalizados no LinkedIn, preencha também os metadados estáticos do `<head>` com os dados finais do cliente. Esta limitação está documentada e não foi mascarada.
-- O formulário não funciona sem JavaScript. O bloco `noscript` orienta a ativação. Sem internet, os arquivos locais e a seleção GitHub continuam disponíveis; links externos e o envio pelo aplicativo exigem a conectividade apropriada.
+- A página utiliza JavaScript para apresentar os dados e contatos. O bloco `noscript` orienta sua ativação.
 - Acessibilidade visual e responsividade foram implementadas, mas a inspeção em navegador real, o teste com leitor de tela e a auditoria WCAG completa não foram realizados neste ambiente.
 
 Fontes e pendências: `docs/DIAGNOSTICO.md`, `docs/FONTES.md`, `docs/VALIDACAO.md`.
@@ -100,6 +100,13 @@ Fontes e pendências: `docs/DIAGNOSTICO.md`, `docs/FONTES.md`, `docs/VALIDACAO.m
 
 Ícones e rótulos ampliados, elementos marcados removidos, diagrama local de processo, colunas de trajetória com mesma largura e altura no desktop, formação agrupada, destaque dourado na premiação e links de código individuais removidos. Marcos “18 anos” e “7 anos” conforme texto solicitado pelo profissional em outubro de 2026; são textos editoriais e não contadores automáticos.
 
-## Anexos no contato
+## Última revisão: sete novos prints
 
-Sem anexos, o formulário abre o aplicativo de e-mail com `mailto:`. Com anexos, gera localmente um arquivo `.eml` com corpo e anexos incorporados (até 10 MB no total). Abra o arquivo em um aplicativo compatível e conclua o envio nele. A edição de rascunhos `.eml` depende do aplicativo; o site não garante suporte universal, não envia a mensagem automaticamente e não transfere os arquivos para servidores.
+- Formulário e seus avisos removidos. Painel “Clareza na demanda. Consistência na solução.” com três frentes de contribuição: negócio, sistemas e processos.
+- Links diretos de e-mail, LinkedIn e GitHub preservados. Nenhum envio automático ou download de arquivo.
+- Título “Projetos e Inovação” no tópico 04 e no atalho correspondente.
+- Seis cartões com espaçamentos menores, sem alturas mínimas nos títulos/resumos. Fundo branco e ícones acionáveis preservados.
+- Filtros removidos das seções de projetos e soluções. Contador de soluções também removido.
+- Ordinais singulares apresentados como 1ª/1º e 2ª/2º.
+
+A inspeção visual em navegador real permanece pendente; a ferramenta necessária não está disponível neste ambiente.

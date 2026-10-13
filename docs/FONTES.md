@@ -39,3 +39,11 @@ Não houve nova pesquisa externa nesta revisão. A formação foi resolvida pelo
 ## Ajustes dos prints de 12/10/2026
 
 A planilha Principais soft skills.xlsx forneceu os seis títulos e descrições comportamentais. Os 14 prints orientaram as remoções, cores, destaque, dimensão de ícones, organização da trajetória, cursos visíveis, aplicações práticas, textos e contato com anexos. O currículo permanece a base das hard skills. A planilha e os anexos originais não foram modificados.
+
+## Nova revisão dos sete prints
+
+Imagens 20261012-235740, 235954 e 20261013-000047, 000143, 000308, 000435, 000502: remoção do download de e-mail e do repositório curriculo, inversão da hierarquia visual de títulos, ampliação dos desafios e cartões brancos com ícones diferentes e acionáveis. A configuração de contato existente não contém serviço de envio. Limite do GitHub Pages conferido na documentação oficial: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site .
+
+## Revisão dos prints 012603 a 013245
+
+Sete imagens fornecidas em 12/10/2026: remoção do formulário, substituição por informação profissional, título Projetos e Inovação, compactação dos seis cartões, remoção dos filtros e do contador de soluções, padronização de ordinais. O painel novo resume atividades já descritas no currículo e no portfólio; nenhuma nova competência ou resultado foi acrescentado.

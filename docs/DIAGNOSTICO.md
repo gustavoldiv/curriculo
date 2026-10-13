@@ -15,7 +15,7 @@ A revisão utiliza o currículo e o documento de habilidades enviados em 10/10/2
 
 ## Estrutura
 
-Cinco tópicos principais, destaque para a premiação e área final de contato. Experiências têm resumo e atividades expansíveis. Habilidades têm exemplos sempre visíveis em abas com suporte a teclado. Cases e soluções mantêm filtros e dispensam busca textual.
+Cinco tópicos principais, destaque para a premiação e área final de contato. Experiências têm resumo e atividades expansíveis. Habilidades têm exemplos sempre visíveis em abas com suporte a teclado. Cases e soluções aparecem diretamente, sem filtros ou busca textual.
 
 ## Imagem
 
@@ -23,8 +23,8 @@ Edição pelo gerador de imagens, com pedido de remoção localizada de mesa, ca
 
 ## Limites
 
-O site não foi publicado. Não houve inspeção em navegador real nesta versão. O formulário abre o aplicativo de e-mail e não confirma entrega. A descrição das ferramentas não representa auditoria de segurança, validade fiscal ou clínica.
+O site não foi publicado. Não houve inspeção em navegador real nesta versão. O contato mantém links diretos e não possui formulário ou confirmação de entrega. A descrição das ferramentas não representa auditoria de segurança, validade fiscal ou clínica.
 
 ## Revisão por marcações
 
-Experiência e formação usam painéis equivalentes. Vínculos anteriores e cursos adicionais são expansíveis. O contato aceita anexos por geração de rascunho `.eml` local; sem anexos, preserva `mailto:`. A foto não foi reeditada nesta revisão.
+Experiência e formação usam painéis equivalentes. Vínculos anteriores e cursos adicionais são expansíveis. O formulário foi substituído por um painel de contribuição profissional. O endereço de e-mail usa um link `mailto:`; o visitante redige e envia a mensagem no seu aplicativo. A foto não foi reeditada nesta revisão.
