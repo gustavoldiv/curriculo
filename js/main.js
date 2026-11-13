@@ -162,7 +162,7 @@
     const observer=new IntersectionObserver(entries=> {entries.forEach(entry=> {if(entry.isIntersecting){$$('nav a').forEach(link=>link.removeAttribute('aria-current'));const active=$('nav a[href="#'+entry.target.id+'"]');if(active)active.setAttribute('aria-current','location');}});},{rootMargin:'-15% 0px -65% 0px',threshold:0});
     $$('main section[id]').forEach(section=>observer.observe(section));
   }
-  let repositoryData=[];
+  let repositoryData=[], repositoryLimit=4;
   function renderCases() {
     const container=$('#cases'); container.replaceChildren();
     const list=config.cases || [];
@@ -197,7 +197,10 @@
   }
   function renderRepos() {
     const container=$('#repos');container.replaceChildren();
-    const list=repositoryData;
+    const list=repositoryData.slice(0,repositoryLimit);
+    const more=$('#repo-more');
+    if(more)more.hidden=list.length>=repositoryData.length;
+    if($('#repo-count'))$('#repo-count').textContent=`Exibindo ${list.length} de ${repositoryData.length} projetos e soluções`;
     if(!list.length)empty(container,'Nenhuma solução cadastrada no momento.');
     list.forEach(item=> {
       const card=el('article','repo-card');const top=el('div','card-top');const mark=el('div','repo-icon');mark.append(icon(item.name==='orientamed'?'spark':'code'));top.append(mark,el('span','card-number',String(repositoryData.indexOf(item)+1).padStart(2,'0')));card.append(top);const label=el('p','category',item.category);
@@ -206,6 +209,11 @@
     });
   }
   function setRepos(items) {repositoryData=prepareRepos(items);renderRepos();}
+  $('#repo-more')?.addEventListener('click',()=>{
+    const previous=repositoryLimit;repositoryLimit+=4;renderRepos();
+    const heading=$$('#repos .repo-card h3')[previous];
+    if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+  });
   const gh=config.github||{};
   setRepos(gh.fallback||[]);
   async function loadRepositories() {

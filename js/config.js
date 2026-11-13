@@ -13,7 +13,7 @@ window.PORTFOLIO_CONFIG = {
     "whatsapp": "",
     "linkedin": "https://www.linkedin.com/in/gustavolucass",
     "github": "https://github.com/gustavoldiv",
-    "siteUrl": "https://gustavoldiv.github.io/portifolio/",
+    "siteUrl": "https://gustavoldiv.github.io/curriculo/",
     "photo": "assets/avatar-github.jpg",
     "photoAlt": "Gustavo Lucas Sousa",
     "photoCaption": "",
@@ -409,7 +409,8 @@ window.PORTFOLIO_CONFIG = {
     "maxPages": 3,
     "exclude": [
       "portifolio",
-      "curriculo"
+      "curriculo",
+      "orientamed"
     ],
     "reviewedAt": "10/10/2026",
     "curated": {
@@ -431,11 +432,11 @@ window.PORTFOLIO_CONFIG = {
         "priority": 3,
         "description": "Fluxo para organizar planilhas e gerar arquivos SQL para revisão. A aplicação não executa comandos no banco."
       },
-      "orientamed": {
-        "title": "OrientaMed",
-        "category": "Proposta para Inovação",
+      "tratador_caracteres": {
+        "title": "Tratamento e padronização de dados",
+        "category": "Ferramenta",
         "priority": 4,
-        "description": "Nova proposta finalista do 2º Programa de Inovação da Unimed Divinópolis. Protótipo público de uma jornada de orientação assistencial."
+        "description": "Tratamento de dados com remoção de caracteres especiais e geração de scripts SQL para ajustes no banco de dados."
       }
     },
     "fallback": [
@@ -458,10 +459,10 @@ window.PORTFOLIO_CONFIG = {
         "html_url": "https://github.com/gustavoldiv/cont_antecipacao_contas_faturas"
       },
       {
-        "name": "orientamed",
-        "description": "Projeto de Inovação Unimed 2026",
+        "name": "tratador_caracteres",
+        "description": null,
         "language": "HTML",
-        "html_url": "https://github.com/gustavoldiv/orientamed"
+        "html_url": "https://github.com/gustavoldiv/tratador_caracteres"
       }
     ]
   },
