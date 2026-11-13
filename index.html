@@ -9,12 +9,13 @@
   <title>Portfólio profissional | Tecnologia e negócio</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css">
   <script src="js/config.js" defer></script><script src="js/main.js" defer></script>
+  <script src="js/evolution.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="header"><div class="container header-inner">
   <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu <span aria-hidden="true">☰</span></button>
-  <nav id="navigation" aria-label="Navegação principal"><a href="#sobre">Perfil</a><a href="#trajetoria">Trajetória</a><a href="#competencias">Habilidades</a><a href="#projetos">Inovação</a><a class="nav-contact" href="#contato">Contato ↗</a></nav>
+  <nav id="navigation" aria-label="Navegação principal"><a href="#sobre">Perfil</a><a href="#trajetoria">Trajetória</a><a href="#competencias">Habilidades</a><a href="#projetos">Inovação</a><a href="#evolucao">Evolução</a><a class="nav-contact" href="#contato">Contato ↗</a></nav>
 </div></header>
 <main id="conteudo">
 <noscript><div class="container notice">Ative o JavaScript para visualizar o portfólio e seus contatos.</div></noscript>
@@ -35,12 +36,13 @@
   </aside>
   <div class="facts" id="facts" aria-label="Destaques da trajetória"></div>
 </section></div>
-<div class="container"><nav class="topic-navigation" aria-label="Explore os cinco tópicos">
+<div class="container"><nav class="topic-navigation topic-compact" aria-label="Explore os seis tópicos">
   <a href="#sobre"><span class="topic-number">01</span><span data-icon="people"></span><span>Perfil profissional</span><b aria-hidden="true">↗</b></a>
   <a href="#trajetoria"><span class="topic-number">02</span><span data-icon="flow"></span><span>Trajetória</span><b aria-hidden="true">↗</b></a>
   <a href="#competencias"><span class="topic-number">03</span><span data-icon="database"></span><span>Hard & soft skills</span><b aria-hidden="true">↗</b></a>
   <a href="#projetos"><span class="topic-number">04</span><span data-icon="spark"></span><span>Projetos e Inovação</span><b aria-hidden="true">↗</b></a>
   <a href="#codigo"><span class="topic-number">05</span><span data-icon="code"></span><span>Projetos e soluções digitais</span><b aria-hidden="true">↗</b></a>
+  <a href="#evolucao"><span class="topic-number">06</span><span data-icon="flow"></span><span>Evolução profissional</span><b aria-hidden="true">↗</b></a>
 </nav></div>
 <section class="section container" id="sobre" aria-labelledby="about-title">
   <div class="section-heading"><div><h2 class="section-label" id="about-title"><span class="section-number">01</span> Perfil profissional</h2><p class="section-subtitle">Entre o desafio do negócio e a solução em tecnologia.</p></div></div>
@@ -67,7 +69,69 @@
 <section class="section section-soft" id="codigo" aria-labelledby="repos-title"><div class="container">
   <div class="section-heading"><div><h2 class="section-label" id="repos-title"><span class="section-number">05</span> Projetos e soluções digitais</h2><p class="section-subtitle">Do problema prático à ferramenta.</p></div><a class="button github-button" data-link="github"><span data-icon="github"></span>Explorar GitHub ↗</a></div>
   <p class="section-intro">Soluções digitais para otimizar rotinas, melhorar processos e facilitar o tratamento de informações.</p>
-  <p id="repo-status" class="small muted" role="status" aria-live="polite"></p><div class="repo-grid" id="repos"></div>
+  <p id="repo-status" class="small muted" role="status" aria-live="polite"></p><div class="repo-grid" id="repos"></div><div class="repo-pagination"><p id="repo-count" class="small muted" role="status" aria-live="polite"></p><button id="repo-more" class="button primary" type="button" aria-controls="repos" hidden>Veja mais projetos e soluções</button></div>
+</div></section>
+<section class="section evolution-section" id="evolucao" aria-labelledby="evolution-title"><div class="container">
+<div class="section-heading"><div><h2 class="section-label" id="evolution-title"><span class="section-number">06</span> Evolução profissional</h2><p class="section-subtitle">Atualizações e principais entregas, resultados e novas responsabilidades.</p></div></div>
+<p class="evolution-purpose">Acompanhe minha evolução profissional por meio de entregas, resultados e responsabilidades assumidas ao longo do tempo, com destaque para minha atuação e as competências aplicadas em cada iniciativa.</p>
+<div class="evolution-filters" id="evolution-filters" hidden>
+ <div class="evolution-filter"><label for="evolution-month">Mês</label><select id="evolution-month"><option value="">Todos os meses</option><option value="01">Janeiro</option><option value="02">Fevereiro</option><option value="03">Março</option><option value="04">Abril</option><option value="05">Maio</option><option value="06">Junho</option><option value="07">Julho</option><option value="08">Agosto</option><option value="09">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option></select></div>
+ <div class="evolution-filter"><label for="evolution-year">Ano</label><select id="evolution-year"><option value="">Todos os anos</option></select></div>
+ <div class="evolution-filter evolution-skill-filter"><label for="evolution-skill">Competência</label><select id="evolution-skill"><option value="">Todas as competências</option></select></div>
+ <button class="evolution-reset" id="evolution-reset" type="button">Limpar filtros</button>
+</div>
+<p id="evolution-count" class="evolution-count" role="status" aria-live="polite" aria-atomic="true"></p>
+<div id="evolution-list"><article class="evolution-entry" data-date="2026-11" aria-labelledby="evolution-entry-0">
+ <div class="evolution-date"><time datetime="2026-11">11/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-0" tabindex="-1">Solução para tratamento e padronização de dados</h3>
+ <p>Desenvolvimento e disponibilização de aplicação para remover caracteres especiais, espaços desnecessários e acentuação, mantendo apenas letras e números nos dados tratados.</p><p>A solução permite o tratamento de arquivos pelos usuários e a geração de scripts SQL para execução dos ajustes no banco de dados pela TI.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Qualidade de dados</li><li>Automação de rotinas</li><li>SQL</li><li>Autonomia dos usuários</li></ul></div>
+ <a class="evolution-link" href="https://gustavoldiv.github.io/tratador_caracteres/" target="_blank" rel="noopener noreferrer">Acessar solução <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>
+ </div></article><article class="evolution-entry" data-date="2026-11" aria-labelledby="evolution-entry-1">
+ <div class="evolution-date"><time datetime="2026-11">11/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-1" tabindex="-1">Indicação para a Rede de Facilitadores da Ouvidoria</h3>
+ <p>Indicado pela liderança como facilitador de apoio da TI na interlocução com a Ouvidoria, para auxiliar no encaminhamento das manifestações dos clientes e no acompanhamento das demandas da área de TI.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Comunicação</li><li>Comprometimento</li><li>Experiência do cliente</li></ul></div>
+ 
+ </div></article><article class="evolution-entry" data-date="2026-11" aria-labelledby="evolution-entry-2">
+ <div class="evolution-date"><time datetime="2026-11">11/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-2" tabindex="-1">Homologação do PTU Online V10</h3>
+ <p>Participação na homologação do PTU Online V10 no SGU, contribuindo para a validação dos processos de intercâmbio entre Unimeds.</p><p>A Unimed Divinópolis concluiu a certificação da Unimed Brasil após o cumprimento das etapas previstas no plano de testes.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Homologação de sistemas</li><li>Testes funcionais</li><li>Intercâmbio Unimed</li></ul></div>
+ 
+ </div></article><article class="evolution-entry" data-date="2026-10" aria-labelledby="evolution-entry-3">
+ <div class="evolution-date"><time datetime="2026-10">10/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-3" tabindex="-1">Autonomia da Contabilidade na geração do arquivo ISSQN</h3>
+ <p>Desenvolvimento de solução interna que permite à Contabilidade gerar o arquivo ISSQN com autonomia, eliminando a dependência da TI nessa atividade.</p><p>A entrega evitou a contratação de uma customização da MV no valor de <strong>R$ 16,2 mil</strong>.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Solução</li><li>Melhoria de processos</li><li>Autonomia</li><li>Redução de custos</li></ul></div>
+ <a class="evolution-link" href="https://gustavoldiv.github.io/issqn-divinopolis/" target="_blank" rel="noopener noreferrer">Acessar solução <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>
+ </div></article><article class="evolution-entry" data-date="2026-07" aria-labelledby="evolution-entry-4">
+ <div class="evolution-date"><time datetime="2026-07">07/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-4" tabindex="-1">OrientaMed finalista no Programa de Inovação 2026</h3>
+ <p>Autoria e estruturação da proposta <strong>OrientaMed: sua jornada de cuidado começa aqui</strong>, classificada para a fase final do Programa de Inovação 2026 da Unimed Divinópolis após a validação do detalhamento.</p><p>Participação nas oficinas de desenvolvimento e na monitoria com o professor <strong>Diocélio Goulart, da Fundação Dom Cabral (FDC)</strong>, voltadas ao amadurecimento e ao aprimoramento da solução.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Inovação</li><li>Estruturação de propostas</li><li>Jornada do beneficiário</li><li>Transformação digital</li></ul></div>
+ 
+ </div></article><article class="evolution-entry" data-date="2026-04" aria-labelledby="evolution-entry-5">
+ <div class="evolution-date"><time datetime="2026-04">04/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-5" tabindex="-1">Implantação do JMJ Audit</h3>
+ <p>Condução da implantação da solução JMJ Audit como responsável técnico, com acompanhamento do fornecedor e articulação com as áreas internas.</p><p>A solução entrou em produção e passou a ser utilizada pela organização.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Implantação de sistemas</li><li>Articulação entre áreas</li><li>Liderança técnica</li></ul></div>
+ 
+ </div></article><article class="evolution-entry" data-date="2026-04" aria-labelledby="evolution-entry-6">
+ <div class="evolution-date"><time datetime="2026-04">04/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-6" tabindex="-1">Referência técnica e desenvolvimento do time de Negócios de TI</h3>
+ <p>Atuação como ponto focal técnico da equipe, com orientação e mentorias a analistas juniores na análise de requisitos, levantamento de necessidades e definição de soluções. Apoio na resolução de incidentes complexos e no compartilhamento de boas práticas.</p><p>Participação na definição de padrões e processos de trabalho, com apoio à continuidade das atividades nas ausências do gestor.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Liderança técnica</li><li>Análise de requisitos</li><li>Resolução de problemas</li><li>Padronização de processos</li></ul></div>
+ 
+ </div></article><article class="evolution-entry" data-date="2026-02" aria-labelledby="evolution-entry-7">
+ <div class="evolution-date"><time datetime="2026-02">02/2026</time></div>
+ <div class="evolution-copy"><h3 id="evolution-entry-7" tabindex="-1">Governança de processos e gestão do conhecimento</h3>
+ <p>Ponto focal e acompanhamento para a elaboração, revisão e atualização de manuais, fluxos e procedimentos de TI, com compartilhamento de conhecimento e apoio à padronização das atividades.</p><p>Atuação junto às áreas de negócio, Governança e TI na documentação e melhoria dos processos.</p>
+ <div class="evolution-skills"><strong>Competências em destaque:</strong><ul aria-label="Competências"><li>Governança de TI</li><li>Gestão do conhecimento</li><li>Documentação de processos</li><li>Melhoria contínua</li></ul></div>
+ 
+ </div></article></div>
+<p class="evolution-empty" id="evolution-empty" hidden>Nenhuma atualização encontrada com estes filtros. Selecione outro período ou competência, ou limpe os filtros.</p>
+<div class="evolution-actions" id="evolution-actions" hidden><button type="button" class="button primary" id="evolution-more" aria-controls="evolution-list">Ver mais <span aria-hidden="true">↓</span></button><button type="button" class="button evolution-all" id="evolution-all" aria-controls="evolution-list">Ver todos</button><button type="button" class="button evolution-all" id="evolution-less" aria-controls="evolution-list" hidden>Mostrar menos</button></div>
 </div></section>
 <section class="section container" id="contato" aria-labelledby="contact-title"><div class="contact-grid">
   <div><p class="eyebrow contact-label"><span data-icon="mail"></span>Contato</p><h2 id="contact-title">Novos desafios.<br>Novas possibilidades.</h2><p class="contact-intro">Oportunidades profissionais, sistemas corporativos, integração entre áreas e melhoria de processos.</p><div class="contact-links"><a data-link="email" id="email-link"></a><a data-link="linkedin" data-contact-icon="linkedin">Conectar no LinkedIn ↗</a><a data-link="github" data-contact-icon="github">Ver perfil no GitHub ↗</a><a id="whatsapp-link" hidden>Conversar no WhatsApp ↗</a></div></div>
